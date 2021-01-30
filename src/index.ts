@@ -1,7 +1,7 @@
 import { Telegraf } from 'telegraf';
 
 import { logs, testCommand } from './utilities';
-import { exitChat, photoMessage, stickerMessage, helpCommand } from './commands';
+import { exitChat, photoMessage, stickerMessage, helpCommand, randomChuck } from './commands';
 
 let BOT_TOKEN: string = '';
 if (process.env.NODE_ENV !== 'production') {
@@ -18,6 +18,7 @@ bot.use(logs);
 bot.command('test', testCommand);
 bot.command('quit', exitChat);
 bot.command('help', helpCommand);
+bot.command('chucknorris', randomChuck);
 bot.on('sticker', stickerMessage);
 bot.on('photo', photoMessage);
 
