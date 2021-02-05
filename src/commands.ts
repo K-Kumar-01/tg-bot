@@ -27,7 +27,7 @@ export const stickerMessage = async (ctx: Context): Promise<void> => {
   ctx.reply('I love stickers');
 };
 
-export const randomChuck = async (ctx: Context): Promise<void> => {
+export const randomChuckCall = async (): Promise<string> => {
   let fact;
   let message: string;
   try {
@@ -37,5 +37,11 @@ export const randomChuck = async (ctx: Context): Promise<void> => {
     console.error(error);
     message = 'Error occured in retrieving fact. Please try again later';
   }
+  return message;
+};
+
+export const randomChuck = async (ctx: Context): Promise<void> => {
+  let message: string;
+  message = await randomChuckCall();
   ctx.reply(message);
 };

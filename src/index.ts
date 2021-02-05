@@ -3,9 +3,10 @@ import { Telegraf } from 'telegraf';
 import { logs, testCommand } from './utilities';
 import { exitChat, photoMessage, stickerMessage, helpCommand, randomChuck } from './commands';
 
+//eslint-disable-next-line
 let BOT_TOKEN: string = '';
 if (process.env.NODE_ENV !== 'production') {
-  require('dotenv').config();
+  require('dotenv').config(); //eslint-disable-line
   BOT_TOKEN = process.env.BOT_TOKEN as string;
   console.log('hello');
 }
@@ -27,3 +28,5 @@ bot.launch();
 // Enable graceful stop
 process.once('SIGINT', () => bot.stop('SIGINT'));
 process.once('SIGTERM', () => bot.stop('SIGTERM'));
+
+export { bot };
